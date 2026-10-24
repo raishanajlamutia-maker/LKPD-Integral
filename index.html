@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Integral Detective – LKPD Digital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']]},options:{skipHtmlTags:['script','noscript','style','textarea']}};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script defer src="script.js"></script>
+</head>
+<body>
+<div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+<span class="deco d1">✦</span><span class="deco d2">✿</span><span class="deco d3">✧</span>
+
+<header class="top">
+  <div class="brand">🔍 Integral Detective</div>
+  <div class="progwrap"><div class="progbar"><div id="progfill"></div></div><span id="progtxt">0%</span></div>
+  <nav id="nav" aria-label="Navigasi kegiatan"></nav>
+</header>
+
+<main>
+<section class="page" id="s0" data-title="Beranda">
+  <div class="hero card">
+    <p class="kicker">✦ LKPD Digital Matematika ✦</p>
+    <h1>Integral Detective</h1>
+    <h2>Menemukan Fungsi Asal – SMA Kelas XI</h2>
+    <p>Hari ini kamu menjadi detektif matematika. Petunjuknya: sebuah fungsi dan turunannya. Tugasmu adalah menemukan hubungan keduanya, lalu menelusuri jalan kembali dari turunan ke <b>fungsi asal</b>. Dari sinilah konsep <b>integral tak tentu</b> akan kamu temukan sendiri.</p>
+  </div>
+  <div class="card">
+    <h3>Identitas</h3>
+    <div class="idgrid">
+      <label>Nama<input data-id="nama" type="text" placeholder="Nama lengkap" autocomplete="off"></label>
+      <label>Kelas<input data-id="kelas" type="text" placeholder="Contoh: XI-3" autocomplete="off"></label>
+      <label>Kelompok<input data-id="kelompok" type="text" placeholder="Contoh: Kelompok 2" autocomplete="off"></label>
+    </div>
+    <div class="actions"><button class="btn primary" data-go="1">Mulai Petualangan ✦</button><button class="btn ghost" id="resetBtn">Mulai Ulang</button></div>
+  </div>
+</section>
+
+<section class="page" id="s1" data-title="Petunjuk">
+  <div class="card"><h2>Petunjuk Penggunaan</h2>
+  <ul class="clean">
+    <li>Baca setiap kegiatan secara berurutan.</li>
+    <li>Amati informasi yang diberikan.</li>
+    <li>Kerjakan pertanyaan sesuai hasil pengamatan.</li>
+    <li>Diskusikan jawaban dengan anggota kelompok.</li>
+    <li>Jangan langsung mencari rumus sebelum menemukan pola.</li>
+    <li>Gunakan konsep turunan untuk memeriksa hasil integral.</li>
+    <li>Gunakan tombol “Cek” jika tersedia.</li>
+    <li>Jawaban yang bersifat reflektif tidak dinilai otomatis.</li>
+  </ul></div>
+  <div class="card tip" id="howto"></div>
+</section>
+
+<section class="page" id="s2" data-title="Kegiatan 1 – Stimulasi">
+  <div class="card"><span class="tag">Kegiatan 1 · Stimulasi</span><h2>Mengamati Turunan</h2>
+  <p>Ingat kembali konsep turunan. Tentukan turunan dari setiap fungsi berikut, lalu tekan <b>Cek</b>.</p>
+  <div class="tablewrap"><table id="k1table"></table></div></div>
+  <div class="card">
+    <p class="q"><b>1.</b> Apa hubungan $F(x)$ dengan $F'(x)$?</p>
+    <textarea data-id="k1q1" data-label="Hubungan F(x) dengan F′(x)" placeholder="Tulis jawabanmu…"></textarea>
+    <div class="actions"><button class="btn" data-act="kw" data-kw="k1q1" data-id="k1q1">Cek Jawaban</button></div><div class="fb" id="fb-k1q1"></div>
+    <p class="q"><b>2.</b> Jika yang diketahui $F'(x)$, apakah mungkin menemukan $F(x)$? Jelaskan.</p>
+    <textarea data-id="k1q2" data-label="Mungkinkah menemukan F(x) dari F′(x)?" placeholder="Tulis jawabanmu…"></textarea>
+    <div class="actions"><button class="btn" data-act="kw" data-kw="k1q2" data-id="k1q2">Cek Jawaban</button></div><div class="fb" id="fb-k1q2"></div>
+  </div>
+</section>
+
+<section class="page" id="s3" data-title="Kegiatan 2 – Identifikasi Masalah">
+  <div class="card"><span class="tag">Kegiatan 2 · Identifikasi Masalah</span><h2>Menentukan Masalah</h2>
+  <p class="focus">Diketahui $F'(x)=3x^2$. Bagaimana cara menemukan fungsi $F(x)$ yang memiliki turunan tersebut?</p>
+  <p>Rumuskan masalahnya dengan kata-katamu sendiri. Jawaban di sini tidak dinilai otomatis.</p>
+  <label class="fl">Apa yang diketahui?<textarea data-id="k2a" data-label="Yang diketahui"></textarea></label>
+  <label class="fl">Apa yang ingin ditemukan?<textarea data-id="k2b" data-label="Yang ingin ditemukan"></textarea></label>
+  <label class="fl">Bagaimana cara menemukan $F(x)$?<textarea data-id="k2c" data-label="Cara menemukan F(x)"></textarea></label>
+  <label class="fl">Tuliskan pertanyaan yang menurut kalian perlu dijawab untuk menyelesaikan masalah tersebut.<textarea data-id="k2d" data-label="Pertanyaan yang perlu dijawab"></textarea></label>
+  <p class="hint">Petunjuk: pertanyaan dapat berkaitan dengan cara menentukan fungsi asal dari suatu turunan atau pola yang digunakan untuk menentukan fungsi tersebut.</p></div>
+</section>
+
+<section class="page" id="s4" data-title="Kegiatan 3 – Mengumpulkan dan Mengolah Data">
+  <div class="card"><span class="tag">Kegiatan 3 · Mengumpulkan dan Mengolah Data</span><h2>Menemukan Pola Integral</h2>
+  <p>Perhatikan pasangan turunan dan fungsi asalnya. Lengkapi kedua tabel pola berikut, lalu tekan <b>Cek</b>.</p>
+  <h3>Pola Perubahan Pangkat</h3>
+  <div class="tablewrap"><table id="k3a"></table></div>
+  <h3>Pola Perubahan Koefisien</h3>
+  <div class="tablewrap"><table id="k3b"></table></div></div>
+  <div class="card">
+    <p class="q"><b>Bagaimana perubahan pangkat $x$?</b></p>
+    <textarea data-id="k3q1" data-label="Perubahan pangkat x"></textarea>
+    <div class="actions"><button class="btn" data-act="kw" data-kw="pangkat" data-id="k3q1">Cek Jawaban</button></div><div class="fb" id="fb-k3q1"></div>
+    <p class="q"><b>Bagaimana perubahan koefisien?</b></p>
+    <textarea data-id="k3q2" data-label="Perubahan koefisien"></textarea>
+    <div class="actions"><button class="btn" data-act="kw" data-kw="koef" data-id="k3q2">Cek Jawaban</button></div><div class="fb" id="fb-k3q2"></div>
+    <p class="q"><b>Mengapa ketika mencari fungsi asal, pangkat $x$ bertambah 1?</b></p>
+    <textarea data-id="k3q3" data-label="Mengapa pangkat bertambah 1"></textarea>
+  </div>
+  <div class="card formula"><span class="tag">Rumus dasar</span><h3>Pola yang kamu temukan</h3>
+    <img src="assets/rumus_integral.png" alt="Rumus integral dasar: integral x pangkat n dx sama dengan x pangkat n+1 per n+1 ditambah C, dengan n tidak sama dengan minus 1">
+    <p>Pangkat bertambah 1, lalu koefisien dibagi dengan pangkat yang baru. Konstanta $C$ ditambahkan di akhir. Rumus ini berlaku untuk $n\neq -1$.</p></div>
+</section>
+
+<section class="page" id="s5" data-title="Kegiatan 4 – Mengolah dan Menerapkan Pola">
+  <div class="card"><span class="tag">Kegiatan 4 · Mengolah dan Menerapkan Pola</span><h2>Menguji Pola</h2>
+  <p>Gunakan pola yang telah ditemukan untuk menyelesaikan integral berikut.</p>
+  <div class="tip card inner" id="howto2"></div>
+  <div id="k4list"></div></div>
+</section>
+
+<section class="page" id="s6" data-title="Kegiatan 5 – Memeriksa Kebenaran Hasil">
+  <div class="card"><span class="tag">Kegiatan 5 · Memeriksa Kebenaran Hasil</span><h2>Memeriksa Kebenaran Hasil</h2>
+  <p>Gunakan kembali konsep turunan untuk memeriksa kelima jawaban sebelumnya. Turunkan hasil integral, lalu tentukan apakah hasilnya sama dengan fungsi yang diintegralkan.</p>
+  <div id="k5list"></div></div>
+  <div class="card"><h3>Perhatikan Konstanta $C$</h3>
+  <p>Ketika $F(x)=x^3$ dan $G(x)=x^3+5$, maka $F'(x)=3x^2$ dan $G'(x)=3x^2$.</p>
+  <p class="q"><b>Mengapa dua fungsi yang berbeda dapat mempunyai turunan yang sama?</b></p>
+  <textarea data-id="k5q1" data-label="Mengapa dua fungsi berbeda punya turunan sama"></textarea>
+  <div class="actions"><button class="btn" data-act="kw" data-kw="k5a" data-id="k5q1">Cek Jawaban</button></div><div class="fb" id="fb-k5q1"></div>
+  <p class="q"><b>Apa peran $C$ dalam integral tak tentu?</b></p>
+  <textarea data-id="k5q2" data-label="Peran C dalam integral tak tentu"></textarea>
+  <div class="actions"><button class="btn" data-act="kw" data-kw="k5b" data-id="k5q2">Cek Jawaban</button></div><div class="fb" id="fb-k5q2"></div></div>
+</section>
+
+<section class="page" id="s7" data-title="Kegiatan 6 – Menarik Kesimpulan">
+  <div class="card"><span class="tag">Kegiatan 6 · Menarik Kesimpulan</span><h2>Menarik Kesimpulan</h2>
+  <p>Lengkapi kesimpulan berikut berdasarkan hasil penemuan kelompok kalian. Untuk rumus, gunakan cara penulisan pada kartu petunjuk (contoh: <code>a/(n+1)*x^(n+1)+C</code>).</p>
+  <div id="k6box"></div>
+  <div class="actions"><button class="btn primary" id="k6check">Cek Kesimpulan</button></div><div class="fb" id="fb-k6"></div></div>
+</section>
+
+<section class="page" id="s8" data-title="Kegiatan 7 – Refleksi">
+  <div class="card"><span class="tag">Kegiatan 7 · Refleksi</span><h2>Refleksi</h2>
+  <p>Jawabanmu disimpan, tetapi tidak dinilai benar atau salah.</p>
+  <p class="q"><b>1.</b> Hal baru apa yang kalian temukan tentang hubungan turunan dan integral?</p>
+  <textarea data-id="k7q1" data-label="Hal baru yang ditemukan"></textarea>
+  <p class="q"><b>2.</b> Bagian kegiatan mana yang paling membantu kalian menemukan konsep integral?</p>
+  <textarea data-id="k7q2" data-label="Bagian yang paling membantu"></textarea>
+  <p class="q"><b>3.</b> Apakah kalian sudah dapat menjelaskan mengapa integral disebut kebalikan dari turunan?</p>
+  <div class="radios"><label><input type="radio" name="k7q3" data-id="k7q3" data-label="Sudah dapat menjelaskan?" value="Sudah"> Sudah</label><label><input type="radio" name="k7q3" data-id="k7q3" value="Sebagian"> Sebagian</label><label><input type="radio" name="k7q3" data-id="k7q3" value="Belum"> Belum</label></div>
+  <p class="q"><b>4.</b> Hal apa yang masih membuat kalian bingung?</p>
+  <textarea data-id="k7q4" data-label="Hal yang masih membingungkan"></textarea></div>
+</section>
+
+<section class="page" id="s9" data-title="Hasil">
+  <div class="card"><h2>Hasil LKPD</h2><div id="hasil"></div>
+  <div class="actions noprint"><button class="btn primary" id="printBtn">Cetak Hasil</button><button class="btn ghost" id="resetBtn2">Mulai Ulang</button></div></div>
+</section>
+</main>
+
+<footer class="bottom">
+  <button class="btn ghost" id="prev">‹ Sebelumnya</button>
+  <button class="btn ghost" data-go="0">Beranda</button>
+  <button class="btn primary" id="next">Selanjutnya ›</button>
+</footer>
+</body>
+</html>
